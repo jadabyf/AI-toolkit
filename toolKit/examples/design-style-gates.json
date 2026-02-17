@@ -1,0 +1,54 @@
+{
+  "$schema": "../gates.schema.json",
+  "thresholds": {
+    "passScore": 80,
+    "warnScore": 60
+  },
+  "rules": {
+    "design.general.consistency": {
+      "enabled": true,
+      "params": {
+        "fontFamilies": ["Inter", "Roboto"],
+        "fontSizes": [14, 16, 18, 24, 32, 48],
+        "spacingValues": [8, 16, 24, 32, 48, 64],
+        "colorCount": 5
+      }
+    },
+    "design.minimalism.typography": {
+      "enabled": true,
+      "params": {
+        "designStyle": "minimalism",
+        "fontFamilies": ["Inter"],
+        "fontSizes": [16, 18, 24, 32]
+      }
+    },
+    "design.minimalism.spacing": {
+      "enabled": true,
+      "params": {
+        "designStyle": "minimalism",
+        "spacingValues": [8, 16, 24, 32, 48]
+      }
+    },
+    "design.minimalism.color": {
+      "enabled": true,
+      "params": {
+        "designStyle": "minimalism",
+        "colorCount": 3
+      }
+    },
+    "design.minimalism.layout": {
+      "enabled": true,
+      "params": {
+        "designStyle": "minimalism",
+        "hasGrid": true,
+        "whitespaceRatio": 50
+      }
+    },
+    "design.minimalism.characteristics": {
+      "enabled": true,
+      "params": {
+        "designStyle": "minimalism"
+      }
+    }
+  }
+}

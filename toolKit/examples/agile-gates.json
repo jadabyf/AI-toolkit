@@ -1,0 +1,66 @@
+{
+  "$schema": "../agile-gates.schema.json",
+  "thresholds": {
+    "acceptanceScore": 85,
+    "warningScore": 70
+  },
+  "vibeCoderStandards": {
+    "maxNestingDepth": 3,
+    "maxLineLength": 100,
+    "minCommentCoverage": 15,
+    "maxComplexityScore": 6
+  },
+  "reproducibilitySettings": {
+    "requiredConsistencyRuns": 3,
+    "maxDeviationThreshold": 0.1
+  },
+  "vscodeSettings": {
+    "minVersion": "1.80.0",
+    "allowedExtensions": [
+      "prettier",
+      "eslint",
+      "python",
+      "jupyter",
+      "debugger-for-chrome"
+    ],
+    "requireLinting": true,
+    "requireFormatting": true
+  },
+  "gates": {
+    "agile.promptIntent": {
+      "enabled": true,
+      "mandatory": true,
+      "params": {}
+    },
+    "agile.codeCorrectness": {
+      "enabled": true,
+      "mandatory": true,
+      "params": {}
+    },
+    "agile.vibeCoderStandard": {
+      "enabled": true,
+      "mandatory": true,
+      "params": {}
+    },
+    "agile.hallucinationSafety": {
+      "enabled": true,
+      "mandatory": true,
+      "params": {}
+    },
+    "agile.reproducibility": {
+      "enabled": true,
+      "mandatory": true,
+      "params": {}
+    },
+    "agile.documentation": {
+      "enabled": true,
+      "mandatory": false,
+      "params": {}
+    },
+    "agile.vscodeIntegration": {
+      "enabled": true,
+      "mandatory": true,
+      "params": {}
+    }
+  }
+}

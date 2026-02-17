@@ -1,0 +1,31 @@
+{
+  "name": "ai-web-research-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "bin": {
+    "research": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "research": "tsx src/researchCli.ts",
+    "research:design": "tsx src/designResearchCli.ts",
+    "research:examples": "tsx examples/research-examples.ts",
+    "research:cli": "tsx src/research/cli.ts"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "dotenv": "^16.4.5",
+    "openai": "^4.104.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "tsx": "^4.7.1",
+    "typescript": "^5.6.3",
+    "vitest": "^4.0.18"
+  }
+}

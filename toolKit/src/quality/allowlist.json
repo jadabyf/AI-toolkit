@@ -1,0 +1,39 @@
+{
+  "primaryDomains": [
+    "sec.gov",
+    "ed.gov",
+    "fda.gov",
+    "nih.gov",
+    "who.int",
+    "europa.eu",
+    "developer.mozilla.org",
+    "learn.microsoft.com",
+    "cloud.google.com",
+    "aws.amazon.com",
+    "stripe.com",
+    "docs.github.com"
+  ],
+  "secondaryDomains": [
+    "wikipedia.org",
+    "khanacademy.org",
+    "coursera.org",
+    "edx.org",
+    "openai.com",
+    "stackoverflow.com"
+  ],
+  "reviewDomains": [
+    "g2.com",
+    "capterra.com",
+    "trustpilot.com",
+    "wirecutter.com",
+    "pcmag.com"
+  ],
+  "lowQualityDomains": [
+    "best-deals",
+    "coupon",
+    "promo",
+    "top10",
+    "reviews-affiliate",
+    "dealhub"
+  ]
+}

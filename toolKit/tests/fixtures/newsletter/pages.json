@@ -1,0 +1,16 @@
+[
+  {
+    "id": "page-1",
+    "url": "https://acme.com/blog/launch",
+    "title": "Launch",
+    "extractedText": "Acme launched a new platform for analytics and reporting. The platform focuses on faster onboarding and improved dashboards. The announcement highlights roadmap items and integration details.",
+    "extractedAt": "2026-02-01T00:00:00Z"
+  },
+  {
+    "id": "page-2",
+    "url": "https://sec.gov/Archives/edgar/data/0000000/filing.htm",
+    "title": "Filing",
+    "extractedText": "The filing outlines revenue guidance, product milestones, and financial risk factors. It also notes new customer growth and planned investments in infrastructure.",
+    "extractedAt": "2026-02-05T00:00:00Z"
+  }
+]

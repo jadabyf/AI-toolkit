@@ -1,0 +1,31 @@
+[
+  {
+    "id": "summary-1",
+    "title": "Acme update",
+    "fields": {
+      "whatHappened": "Acme launched a new analytics platform.",
+      "whyItMatters": "It signals faster onboarding and better reporting for customers.",
+      "whatsNext": "Watch for integration updates and customer adoption metrics."
+    },
+    "bullets": [
+      {
+        "text": "Acme announced a new analytics platform launch.",
+        "citations": [
+          {
+            "url": "https://acme.com/blog/launch",
+            "quote": "Acme announced a new analytics platform launch."
+          }
+        ]
+      },
+      {
+        "text": "The latest filing highlights revenue guidance and product milestones.",
+        "citations": [
+          {
+            "url": "https://sec.gov/Archives/edgar/data/0000000/filing.htm",
+            "quote": "The filing outlines revenue guidance and product milestones."
+          }
+        ]
+      }
+    ]
+  }
+]

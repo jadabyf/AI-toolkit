@@ -1,0 +1,20 @@
+[
+  {
+    "id": "source-1",
+    "url": "https://acme.com/blog/launch",
+    "title": "Acme Launch",
+    "fetchedAt": "2026-02-01T00:00:00Z"
+  },
+  {
+    "id": "source-2",
+    "url": "https://sec.gov/Archives/edgar/data/0000000/filing.htm",
+    "title": "Filing",
+    "fetchedAt": "2026-02-05T00:00:00Z"
+  },
+  {
+    "id": "source-3",
+    "url": "https://example.com/industry-news",
+    "title": "Industry News",
+    "fetchedAt": "2026-01-20T00:00:00Z"
+  }
+]
