@@ -6,6 +6,7 @@
 import { writeDoc } from "../src/research/writeDoc";
 import * as fs from "fs/promises";
 import * as path from "path";
+import { test, expect } from "vitest";
 
 // Mock research result with quality gate tracking
 const mockResearchResult = {
@@ -167,13 +168,17 @@ async function testResearchImplementation() {
     console.log("\n" + "=" .repeat(70));
     console.log(`✅ Research implementation verified successfully!\n`);
 
+    // Cleanup generated artifact to keep repository clean during test runs.
+    await fs.unlink(filepath).catch(() => undefined);
+
     return true;
   } catch (error) {
     console.error("\n❌ TEST FAILED:");
     console.error(`   ${error instanceof Error ? error.message : String(error)}\n`);
-    process.exit(1);
+    throw error;
   }
 }
 
-// Run tests
-testResearchImplementation().catch(console.error);
+test("research implementation integration", async () => {
+  await expect(testResearchImplementation()).resolves.toBe(true);
+});

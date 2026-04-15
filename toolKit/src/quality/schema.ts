@@ -5,6 +5,8 @@ import { SiteType, Thresholds } from "./types";
 const thresholdsSchema = z.object({
   passScore: z.number().min(0).max(100),
   warnScore: z.number().min(0).max(100)
+}).refine((value) => value.warnScore <= value.passScore, {
+  message: "warnScore must be less than or equal to passScore"
 });
 
 const ruleOverrideSchema = z.object({

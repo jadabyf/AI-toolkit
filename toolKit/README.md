@@ -1,62 +1,148 @@
 # ai-web-research-toolkit
 
-A TypeScript CLI toolkit for web research outputs and quality gating.
+Production-style TypeScript toolkit for evidence-backed web research, provenance tracking, and dynamic quality gating.
 
-## Commands
+## Why this exists
 
-### research run
+Most AI research outputs look polished but are hard to audit. This toolkit makes every run traceable:
 
-Create a research output folder that can be gated later.
+- real search provider abstraction (mock, Tavily, Brave, SerpAPI)
+- source extraction and normalized evidence objects
+- claim-to-citation mapping
+- dynamic quality gates by site type
+- auditable run storage with reproducible artifacts
 
-```
-research run --siteType newsletter --out out --input data.json
-```
+## Unified CLI
 
-If `--input` is omitted, the command creates empty `sources.json`, `pages.json`, and `summaries.json` with an `index.json` containing the selected `siteType`.
+Single entrypoint:
 
-### research gate
-
-Evaluate a research output folder using dynamic quality gates.
-
-```
-research gate --in out --out out/gate.json --format md
+```bash
+toolkit <domain> <command>
 ```
 
-This creates `gate.json` and, when `--format md` is specified, also writes `gate.md` alongside it.
+Main command groups:
+
+- `toolkit research run "<query>" --siteType <type>`
+- `toolkit research gate <run-id-or-folder> --out <gate.json> [--format md|json]`
+- `toolkit research report <run-id-or-path>`
+- `toolkit design evaluate <input-folder>`
+- `toolkit sprint evaluate <sprint-artifact.json>`
+
+Examples:
+
+```bash
+toolkit research run "AI coding assistants in 2026" --siteType newsletter --searchProvider tavily --llmProvider openai
+toolkit research gate 20260414T120000Z-ai-coding-assistants --out runs/gate.json --format md
+toolkit research report 20260414T120000Z-ai-coding-assistants
+toolkit design evaluate runs/20260414T120000Z-ai-coding-assistants
+toolkit sprint evaluate examples/sprint-artifact.json
+```
+
+## Architecture
+
+```text
+Query
+  -> SearchProvider.search()
+  -> Raw search result capture
+  -> URL fetch + extraction
+  -> Source normalization
+  -> LLMProvider.summarize()
+  -> LLMProvider.extractClaims()
+  -> Claim <-> citation mapping
+  -> Dynamic quality gate engine
+  -> Markdown/JSON report generation
+  -> Run persistence in runs/<runId>/
+```
+
+Source structure:
+
+```text
+src/
+  cli/
+  core/
+  providers/
+    search/
+    llm/
+  research/
+    pipeline/
+    models/
+    storage/
+    reporting/
+    validation/
+  evaluation/
+    quality/
+    design/
+    sprint/
+  utils/
+```
 
 ## Quality Gates
 
-Quality Gates evaluate your research output (sources, extracted content, and summaries) and produce a PASS, WARN, or FAIL decision based on dynamic rules tied to `siteType`.
+Quality gates evaluate sources + extracted content + summaries and return PASS/WARN/FAIL with evidence and remediation.
 
-### Choosing a site type
+### Site types
 
-Use `--siteType` to align rules with the site you are building:
+- `newsletter`
+- `ecommerce`
+- `portfolio`
+- `saasLanding`
+- `blog`
+- `edtech`
+- `fintech`
+- `general`
 
-- newsletter
-- ecommerce
-- portfolio
-- saasLanding
-- blog
-- edtech
-- fintech
-- general
+### What gets scored
 
-### Customizing with gates.json
+Base rules include:
 
-You can override thresholds and rule parameters using a config file:
+- minimum credible sources
+- domain diversity
+- freshness
+- citation completeness
+- quote quality
+- red flag detection
+- duplicate source detection
+- unsupported claim detection
+- excessive inference detection
+- low-confidence claim ratio
 
+Site-specific rules include newsletter, ecommerce, portfolio, saas landing, and blog checks.
+
+### PASS / WARN / FAIL
+
+- PASS: score >= `passScore`
+- WARN: score >= `warnScore` and < `passScore`
+- FAIL: score < `warnScore`
+
+Default thresholds are site-type aware and configurable via `gates.json`.
+
+## Choosing `siteType`
+
+- `newsletter`: recency-heavy trend content and why-it-matters framing
+- `ecommerce`: product truthfulness, reviews separation, and price recency risk
+- `portfolio`: concise differentiation with credibility links
+- `saasLanding`: claim scrutiny and marketing-language control
+- `blog`: source depth requirement
+- `edtech` / `fintech`: stricter scoring and compliance checklist hints
+- `general`: balanced default profile
+
+## Gate config overrides
+
+Use `gates.schema.json` + Zod validation in runtime.
+
+```bash
+toolkit research gate --in runs/my-run --out runs/my-run/gate.json --format md --gateConfig gates.json
 ```
-research gate --in out --out out/gate.json --format json --gateConfig gates.json
-```
 
-A minimal config example:
+Example `gates.json`:
 
-```
+```json
 {
   "defaults": {
     "thresholds": { "passScore": 80, "warnScore": 60 },
     "rules": {
-      "base.minSources": { "enabled": true, "params": { "min": 3 } }
+      "base.minSources": { "enabled": true, "params": { "min": 4 } },
+      "base.excessiveInference": { "enabled": true, "params": { "warnRatio": 0.25 } }
     }
   },
   "siteTypes": {
@@ -67,196 +153,64 @@ A minimal config example:
 }
 ```
 
-### PASS / WARN / FAIL
+## Run outputs
 
-- PASS: overall score is at or above `passScore`.
-- WARN: overall score is at or above `warnScore` but below `passScore`.
-- FAIL: overall score is below `warnScore`.
+Every run is persisted in `runs/<runId>/` with audit artifacts:
 
-### Design Style Quality Gates
+- `run.json` (full run object)
+- `raw-search-results.json`
+- `index.json`, `sources.json`, `pages.json`, `summaries.json`
+- `gate.json`, `gate.md`
+- `report.json`, `report.md`
 
-The toolkit includes comprehensive quality gates for website design styles. You can specify a design style to ensure your website maintains consistent typography, spacing, colors, and layout patterns.
+## Provider configuration
 
-**Supported Design Styles:**
-- Swiss/International Style, Minimalism, Brutalism
-- Material Design, Flat Design, Skeuomorphism
-- Neumorphism, Glassmorphism, Bauhaus
-- Memphis Design, Art Deco, Organic Design
-- Grid-Based Design, Asymmetric Design
-
-**To use design style gates:**
-
-1. Add `designStyle` to your `index.json`:
-   ```json
-   {
-     "siteType": "portfolio",
-     "designStyle": "minimalism"
-   }
-   ```
-
-2. Provide design metrics in your gates config:
-   ```json
-   {
-     "rules": {
-       "design.minimalism.typography": {
-         "params": {
-           "designStyle": "minimalism",
-           "fontFamilies": ["Inter"],
-           "fontSizes": [16, 18, 24, 32]
-         }
-       }
-     }
-   }
-   ```
-
-**Design gates check for:**
-- Typography consistency (font families, sizes, line heights)
-- Spacing consistency (base units, scale adherence)
-- Color palette compliance (color count, contrast ratios)
-- Layout structure (grid usage, whitespace ratios)
-- Style-specific characteristics
-
-See `docs/DESIGN_STYLES.md` for full documentation and `docs/DESIGN_STYLES_REFERENCE.md` for a quick reference guide.
-
-### Agile Quality Gates for VS Code Vibe Coder
-
-The toolkit includes comprehensive sprint-level quality gates for AI-generated code following Agile development practices. These gates ensure reliability, correctness, and responsible AI behavior across sprint cycles.
-
-**7 Sprint-Level Quality Gates:**
-1. **Prompt Design & Intent Gate** - Ensure AI understands developer intent clearly
-2. **Code Correctness Gate** - Verify syntactically and logically valid code
-3. **Vibe Coder Standard Gate** - Maintain beginner-friendly, readable code
-4. **Hallucination & Safety Gate** - Prevent fabricated APIs or libraries
-5. **Reproducibility Gate** - Ensure consistent outputs across runs
-6. **Documentation & Explainability Gate** - Explain why code works
-7. **VS Code Integration Gate** - Confirm VS Code workflow compatibility
-
-**Sprint Acceptance Rule:**
-A sprint is only accepted if all mandatory quality gates pass. Failed gates block progression to the next sprint cycle.
-
-**To use Agile gates:**
-
-```typescript
-import { runSprintAcceptance } from "./quality/sprintEngine";
-import { SprintArtifact, SprintValidationContext } from "./quality/agileTypes";
-
-const sprint: SprintArtifact = {
-  sprintId: "sprint-001",
-  sprintNumber: 1,
-  phase: "code-generation",
-  timestamp: new Date().toISOString(),
-  prompt: {
-    prompt: "Create email validator in TypeScript",
-    language: "TypeScript",
-    taskGoal: "Email validation",
-    isExplicit: true,
-    isScoped: true,
-    isReproducible: true
-  },
-  codeArtifacts: [/* your code */]
-};
-
-const context: SprintValidationContext = { sprint, ruleParams: {} };
-const report = runSprintAcceptance(context, "agile-gates.json");
-
-console.log(`Sprint ${report.sprintNumber}: ${report.overallStatus}`);
-```
-
-See `docs/AGILE_GATES.md` for complete documentation and `examples/agile-gates.json` for configuration.
-
-### Web Research Feature (NEW)
-
-Perform live web research using OpenAI with automatic source citation.
-
-**Quick Start:**
+Copy `.env.example` to `.env` and configure:
 
 ```bash
-# Add your OpenAI API key to .env
-OPENAI_API_KEY=sk-your-key-here
+AI_PROVIDER=auto
+OPENAI_API_KEY=your_openai_key_here
+OPENAI_MODEL=gpt-4o-mini
 
-# Run research from command line
-npm run research "What are the latest AI developments in 2026?"
+SEARCH_PROVIDER=mock
+LLM_PROVIDER=heuristic
+
+TAVILY_API_KEY=your_tavily_key_here
+SERPAPI_API_KEY=your_serpapi_key_here
+BRAVE_SEARCH_API_KEY=your_brave_key_here
 ```
 
-**Output:**
-- Saved to `docs/research/YYYY-MM-DD-topic-slug.md`
-- Includes Summary section with findings
-- Includes Sources section with URLs
-- Clearly states if no sources were found
+## Setup
 
-**Key Features:**
-- ✅ Uses OpenAI's browsing-enabled models for live web search
-- ✅ Accepts research queries from CLI
-- ✅ Generates clean Markdown with citations
-- ✅ No hallucination - explicitly states when no sources available
-- ✅ Does not rely on model training data for current events
-
-See `docs/WEB_RESEARCH_QUICK_START.md` for complete guide.
-
-### Web Research Agent
-
-The toolkit includes a production-quality Web Research Agent that uses OpenAI's API to generate comprehensive, citation-backed research reports.
-
-> **⚠️ Important**: Currently uses AI knowledge base (prepared for future OpenAI `web_search` tool integration). See `docs/WEB_SEARCH_STATUS.md` for details.
-
-**Key Features:**
-- 📚 **Citation-Backed Research** - All claims include source URLs
-- 🎯 **Structured Output** - Well-formatted reports with sections and references
-- 🚫 **Anti-Hallucination** - Explicitly states when data is insufficient; no speculation
-- 📄 **Markdown Output** - Well-formatted reports with sections and references
-- ⚖️ **Confidence Ratings** - Each section rated (high/medium/low/insufficient)
-- 💾 **Auto-Save** - Saves research to `docs/research/` in Markdown and JSON
-
-**Quick Start:**
-
-```typescript
-import { WebResearchAgent } from "./src/research";
-
-// Initialize with OpenAI API key
-const agent = new WebResearchAgent(process.env.OPENAI_API_KEY!);
-
-// Perform research
-const research = await agent.research({
-  topic: "Latest TypeScript features in 2024",
-  context: "Focus on type safety improvements",
-  maxResults: 10,
-  includeRecentOnly: true
-});
-
-console.log(research.summary);
-console.log(`Sources: ${research.metadata.totalSources}`);
-console.log(`Confidence: ${research.metadata.confidenceLevel}`);
-```
-
-**CLI Usage:**
-
-```typescript
-import { runResearch } from "./src/research";
-
-// One-line research with auto-save
-await runResearch(
-  process.env.OPENAI_API_KEY!,
-  "What are the benefits of serverless architecture?",
-  "Focus on cost reduction and scalability"
-);
-```
-
-**Anti-Hallucination Protocol:**
-- ✅ All statements backed by web search results
-- ✅ Minimum source requirements (default: 2)
-- ✅ Confidence ratings for every section
-- ✅ Explicit "insufficient data" when sources unavailable
-- ❌ No speculation or knowledge gap filling
-- ❌ No claims without supporting sources
-
-**Configuration:**
-
-Add your OpenAI API key to `.env`:
 ```bash
-OPENAI_API_KEY=sk-your-api-key-here
+npm install
+npm run build
+npm test
 ```
 
-See `docs/WEB_RESEARCH_AGENT.md` for complete API documentation and `examples/research-examples.ts` for usage examples.
+Use dev mode:
+
+```bash
+npm run dev -- research run "What changed in frontend performance budgets in 2026?" --siteType blog
+```
+
+## Testing
+
+Vitest coverage includes:
+
+- provider selection behavior
+- malformed search result handling
+- provenance-aware quality gates
+- scoring threshold behavior
+- run persistence
+- report generation
+- CLI routing
+
+Run tests:
+
+```bash
+npm test
+```
 
 ## Research Output Format
 

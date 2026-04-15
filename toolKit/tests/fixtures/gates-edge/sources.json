@@ -1,0 +1,23 @@
+[
+  {
+    "id": "s1",
+    "url": "https://example.com/blog/post-a",
+    "title": "Post A",
+    "fetchedAt": "2026-01-01T00:00:00.000Z",
+    "domain": "example.com"
+  },
+  {
+    "id": "s2",
+    "url": "https://example.com/blog/post-a",
+    "title": "Post A Duplicate",
+    "fetchedAt": "2026-01-01T00:00:00.000Z",
+    "domain": "example.com"
+  },
+  {
+    "id": "s3",
+    "url": "https://wikipedia.org/wiki/Example",
+    "title": "Wiki",
+    "fetchedAt": "2026-01-02T00:00:00.000Z",
+    "domain": "wikipedia.org"
+  }
+]

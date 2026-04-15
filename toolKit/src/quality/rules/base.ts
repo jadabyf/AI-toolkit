@@ -6,6 +6,36 @@ function result(status: RuleResult["status"], scoreDelta: number, explanation: s
   return { status, scoreDelta, explanation, evidence, remediation };
 }
 
+function collectClaimSignals(context: Parameters<Rule["evaluate"]>[0]): {
+  totalBullets: number;
+  unsupportedBullets: number;
+  inferredBullets: number;
+  lowConfidenceBullets: number;
+} {
+  let totalBullets = 0;
+  let unsupportedBullets = 0;
+  let inferredBullets = 0;
+  let lowConfidenceBullets = 0;
+
+  context.summaries.forEach((summary) => {
+    summary.bullets.forEach((bullet) => {
+      totalBullets += 1;
+      if (!bullet.citations || bullet.citations.length === 0) {
+        unsupportedBullets += 1;
+      }
+      const tags = (bullet.tags ?? []).map((tag) => tag.toLowerCase());
+      if (tags.includes("inferred")) {
+        inferredBullets += 1;
+      }
+      if (tags.includes("confidence-low")) {
+        lowConfidenceBullets += 1;
+      }
+    });
+  });
+
+  return { totalBullets, unsupportedBullets, inferredBullets, lowConfidenceBullets };
+}
+
 export function getBaseRules(): Rule[] {
   return [
     {
@@ -44,6 +74,63 @@ export function getBaseRules(): Rule[] {
         return result("FAIL", -15, `Domain diversity: ${diversity} (min ${minDomains}).`, evidence, [
           "Add sources from additional unique domains."
         ]);
+      }
+    },
+    {
+      id: "base.authoritativeSources",
+      title: "Authoritative source minimum",
+      description: "Ensure a minimum number of primary/authoritative domains are represented.",
+      severity: "med",
+      defaultParams: { minPrimaryDomains: 1 },
+      appliesTo: () => true,
+      evaluate: (context) => {
+        const minPrimaryDomains = Number(context.ruleParams.minPrimaryDomains ?? 1);
+        const count = context.domainStats.primaryDomains.length;
+        const evidence: Evidence[] = context.domainStats.primaryDomains.map((domain) => ({
+          type: "source",
+          note: `primary:${domain}`
+        }));
+        if (count >= minPrimaryDomains) {
+          return result("PASS", 0, `Primary domains: ${count} (min ${minPrimaryDomains}).`, evidence, []);
+        }
+        return result("WARN", -10, `Primary domains: ${count} (min ${minPrimaryDomains}).`, evidence, [
+          "Add at least one authoritative source (official docs, .gov/.edu, or primary vendor domain)."
+        ]);
+      }
+    },
+    {
+      id: "base.duplicateSources",
+      title: "Duplicate source detection",
+      description: "Detect duplicated source URLs and over-reliance on identical pages.",
+      severity: "med",
+      defaultParams: { warnCount: 1, failCount: 3 },
+      appliesTo: () => true,
+      evaluate: (context) => {
+        const warnCount = Number(context.ruleParams.warnCount ?? 1);
+        const failCount = Number(context.ruleParams.failCount ?? 3);
+        const counts = new Map<string, number>();
+        context.sources.forEach((source) => {
+          counts.set(source.url, (counts.get(source.url) ?? 0) + 1);
+        });
+
+        const duplicates = Array.from(counts.entries()).filter(([, count]) => count > 1);
+        const evidence: Evidence[] = duplicates.map(([url, count]) => ({
+          type: "source",
+          url,
+          note: `duplicate-count:${count}`
+        }));
+
+        if (duplicates.length >= failCount) {
+          return result("FAIL", -20, `Duplicate source URLs found: ${duplicates.length}.`, evidence, [
+            "Deduplicate URLs and replace repeated pages with additional independent sources."
+          ]);
+        }
+        if (duplicates.length >= warnCount) {
+          return result("WARN", -8, `Duplicate source URLs found: ${duplicates.length}.`, evidence, [
+            "Reduce duplicate URLs to improve source breadth."
+          ]);
+        }
+        return result("PASS", 0, "No duplicate source URLs detected.", [], []);
       }
     },
     {
@@ -101,6 +188,92 @@ export function getBaseRules(): Rule[] {
         return result("FAIL", -25, "Some bullets are missing citations or quotes.", missing, [
           "Ensure every summary bullet includes at least one cited quote."
         ]);
+      }
+    },
+    {
+      id: "base.unsupportedClaims",
+      title: "Unsupported claim detection",
+      description: "Fail when claims appear without citation evidence.",
+      severity: "high",
+      defaultParams: { failRatio: 0.2, warnRatio: 0.05 },
+      appliesTo: () => true,
+      evaluate: (context) => {
+        const failRatio = Number(context.ruleParams.failRatio ?? 0.2);
+        const warnRatio = Number(context.ruleParams.warnRatio ?? 0.05);
+        const signals = collectClaimSignals(context);
+        if (signals.totalBullets === 0) {
+          return result("WARN", -6, "No summary bullets available for claim verification.", [], [
+            "Generate summary bullets with citations before gating."
+          ]);
+        }
+
+        const ratio = signals.unsupportedBullets / signals.totalBullets;
+        if (ratio >= failRatio) {
+          return result("FAIL", -20, `Unsupported claim ratio: ${(ratio * 100).toFixed(1)}%.`, [], [
+            "Add citations to unsupported bullets or remove unsupported claims."
+          ]);
+        }
+        if (ratio >= warnRatio) {
+          return result("WARN", -10, `Unsupported claim ratio: ${(ratio * 100).toFixed(1)}%.`, [], [
+            "Improve citation coverage for remaining unsupported bullets."
+          ]);
+        }
+        return result("PASS", 0, "Unsupported claim ratio is within limits.", [], []);
+      }
+    },
+    {
+      id: "base.excessiveInference",
+      title: "Excessive inference without evidence",
+      description: "Warn or fail when too many claims are marked inferred.",
+      severity: "med",
+      defaultParams: { warnRatio: 0.3, failRatio: 0.5 },
+      appliesTo: () => true,
+      evaluate: (context) => {
+        const warnRatio = Number(context.ruleParams.warnRatio ?? 0.3);
+        const failRatio = Number(context.ruleParams.failRatio ?? 0.5);
+        const signals = collectClaimSignals(context);
+
+        if (signals.totalBullets === 0) {
+          return result("WARN", -5, "No claims available to evaluate inference ratio.", [], [
+            "Provide structured claims with explicit evidence tags."
+          ]);
+        }
+
+        const ratio = signals.inferredBullets / signals.totalBullets;
+        if (ratio >= failRatio) {
+          return result("FAIL", -15, `Inferred-claim ratio too high: ${(ratio * 100).toFixed(1)}%.`, [], [
+            "Reduce inferred statements and replace with directly supported claims."
+          ]);
+        }
+        if (ratio >= warnRatio) {
+          return result("WARN", -8, `Inferred-claim ratio elevated: ${(ratio * 100).toFixed(1)}%.`, [], [
+            "Add direct source evidence for inferred statements."
+          ]);
+        }
+        return result("PASS", 0, "Inference ratio is within acceptable bounds.", [], []);
+      }
+    },
+    {
+      id: "base.lowConfidenceClaims",
+      title: "Low-confidence section detection",
+      description: "Warn when too many bullets are marked low confidence.",
+      severity: "low",
+      defaultParams: { warnRatio: 0.25 },
+      appliesTo: () => true,
+      evaluate: (context) => {
+        const warnRatio = Number(context.ruleParams.warnRatio ?? 0.25);
+        const signals = collectClaimSignals(context);
+        if (signals.totalBullets === 0) {
+          return result("PASS", 0, "No claim bullets available.", [], []);
+        }
+
+        const ratio = signals.lowConfidenceBullets / signals.totalBullets;
+        if (ratio >= warnRatio) {
+          return result("WARN", -6, `Low-confidence claim ratio: ${(ratio * 100).toFixed(1)}%.`, [], [
+            "Collect stronger evidence for low-confidence sections."
+          ]);
+        }
+        return result("PASS", 0, "Low-confidence ratio is within limits.", [], []);
       }
     },
     {

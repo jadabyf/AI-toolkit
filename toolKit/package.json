@@ -4,17 +4,24 @@
   "private": true,
   "type": "commonjs",
   "bin": {
+    "toolkit": "dist/toolkit.js",
     "research": "dist/cli.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "dev": "tsx src/cli.ts",
-    "lint": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx src/toolkit.ts",
+    "lint": "tsc -p tsconfig.test.json --noEmit",
     "test": "vitest run",
-    "research": "tsx src/researchCli.ts",
+    "test:status": "node scripts/test-status.cjs",
+    "test:verbose": "npm test -- --reporter=verbose",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:debug": "vitest --inspect-brk --inspect --single-thread",
+    "check": "npm run lint && npm run build && npm run test",
+    "research": "tsx src/toolkit.ts research run",
     "research:design": "tsx src/designResearchCli.ts",
     "research:examples": "tsx examples/research-examples.ts",
-    "research:cli": "tsx src/research/cli.ts"
+    "research:cli": "tsx src/toolkit.ts"
   },
   "dependencies": {
     "commander": "^12.0.0",

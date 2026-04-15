@@ -13,6 +13,7 @@ import {
 import { writeDoc } from "../src/research/writeDoc";
 import * as fs from "fs/promises";
 import * as path from "path";
+import { test, expect } from "vitest";
 
 async function testDesignResearch() {
   console.log("🧪 Design Research Integration Test\n");
@@ -177,13 +178,17 @@ Famous examples include:
     console.log("\n" + "=" .repeat(70));
     console.log("✅ Design Research implementation verified successfully!\n");
 
+    // Cleanup generated artifact to avoid test side effects in working tree.
+    await fs.unlink(filepath).catch(() => undefined);
+
     return true;
   } catch (error) {
     console.error("\n❌ TEST FAILED:");
     console.error(`   ${error instanceof Error ? error.message : String(error)}\n`);
-    process.exit(1);
+    throw error;
   }
 }
 
-// Run tests
-testDesignResearch().catch(console.error);
+test("design research integration", async () => {
+  await expect(testDesignResearch()).resolves.toBe(true);
+});

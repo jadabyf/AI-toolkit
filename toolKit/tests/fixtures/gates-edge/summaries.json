@@ -1,0 +1,28 @@
+[
+  {
+    "id": "summary-1",
+    "title": "Edge Case Summary",
+    "bullets": [
+      {
+        "text": "Claim without citation should fail.",
+        "citations": [],
+        "tags": ["supported", "confidence-low"]
+      },
+      {
+        "text": "Inferred claim with citation.",
+        "citations": [
+          {
+            "url": "https://example.com/blog/post-a",
+            "quote": "short quote context"
+          }
+        ],
+        "tags": ["inferred", "confidence-low"]
+      },
+      {
+        "text": "Another inferred claim without citation.",
+        "citations": [],
+        "tags": ["inferred", "confidence-low"]
+      }
+    ]
+  }
+]

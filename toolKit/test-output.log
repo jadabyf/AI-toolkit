@@ -1,0 +1,174 @@
+
+> ai-web-research-toolkit@0.1.0 test
+> vitest run
+
+
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90mC:/Users/Jada/aitoolkit_is322/AI-toolkit/toolKit[39m
+
+ [32m✓[39m tests/report-generation.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m tests/run-storage.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m tests/config.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m tests/metrics.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 10[2mms[22m[39m
+[90mstdout[2m | tests/research-integration.test.ts[2m > [22m[2mresearch implementation integration
+[22m[39m🧪 Testing Research Implementation
+
+======================================================================
+
+✅ Test 1: Markdown Generation with Quality Gates
+
+[90mstdout[2m | tests/design-research.test.ts[2m > [22m[2mdesign research integration
+[22m[39m🧪 Design Research Integration Test
+
+======================================================================
+
+✅ Test 1: Design Query Parsing
+
+   Query: "Swiss style portfolio for photographers"
+   • Style: swiss
+   • Type: portfolio
+
+   Query: "Brutalism e-commerce for furniture"
+   • Style: brutalism
+   • Type: e-commerce
+   • Industry: furniture
+
+   Query: "Minimalist newsletter for AI tools"
+   • Style: minimalist
+   • Type: newsletter
+   • Industry: ai tools
+
+   Query: "Glassmorphism SaaS dashboard for healthcare"
+   • Style: glassmorphism
+   • Type: saas
+   • Industry: saas
+
+✅ Test 2: Search Query Optimization
+   Original: "Swiss style e-commerce for makeup"
+   Optimized: "swiss design e-commerce makeup 2026 trends 2025 2026 latest design new 2025 real examples case studies"
+
+✅ Test 3: Design-Specific System Prompt
+   Prompt length: 3297 characters
+   Has design focus: ✅
+   Includes parsed components: ✅
+
+✅ Test 4: Query Validation
+   Valid design query: ✅
+   Invalid query rejected: ✅
+   Message: "Please specify a design style, website type, or industry"
+
+✅ Test 5: Design Query Detection
+   ✅ "Swiss style portfolio": true
+   ✅ "Brutalism e-commerce": true
+   ✅ "UI design newsletter": true
+   ✅ "What is the weather": false
+   ✅ "Tell me about physics": false
+
+✅ Test 6: Design-Focused Markdown Generation
+
+[90mstdout[2m | tests/research-integration.test.ts[2m > [22m[2mresearch implementation integration
+[22m[39m   Generated: C:\Users\Jada\aitoolkit_is322\AI-toolkit\toolKit\docs\research\2026-04-15-current-web-development-trends-2026.md
+
+✅ Test 2: File Creation
+
+[90mstdout[2m | tests/research-integration.test.ts[2m > [22m[2mresearch implementation integration
+[22m[39m   File size: 1676 bytes
+
+✅ Test 3: Content Validation
+
+[90mstdout[2m | tests/design-research.test.ts[2m > [22m[2mdesign research integration
+[22m[39m   File created: 2026-04-15-swiss-style-portfolio-for-photographers.md
+   File size: 1 KB
+   ✅ Title: present
+   ✅ Summary: present
+   ✅ Sources: present
+   ✅ Quality Assurance: present
+
+✅ Test 7: Real Design Query Examples
+   Sample queries processed successfully:
+   ✅ Brutalism e-commerce site for furniture
+   ✅ Glassmorphism SaaS dashboard
+   ✅ Minimalist AI tool landing page
+   ✅ Art Deco fashion e-commerce
+   ✅ Flat design healthcare portal
+   ✅ Dark mode fintech application
+   ✅ Retro portfolio website for creative agency
+
+======================================================================
+✅ ALL DESIGN RESEARCH TESTS PASSED
+
+Key features verified:
+  ✅ Query parsing (style, type, industry)
+  ✅ Search query optimization
+  ✅ Design-specific system prompts
+  ✅ Query validation
+  ✅ Design focus detection
+  ✅ Markdown generation with design metadata
+  ✅ Example query processing
+
+======================================================================
+✅ Design Research implementation verified successfully!
+
+
+[90mstdout[2m | tests/research-integration.test.ts[2m > [22m[2mresearch implementation integration
+[22m[39m   ✅ All required sections present
+
+✅ Test 4: Source Formatting
+   Found 5 properly formatted sources
+
+✅ Test 5: Quality Gate Status
+   ✅ All quality gates marked as passing
+
+✅ Test 6: Source Integrity Check
+   ✅ All sources from web search tool only (no fabrication)
+
+✅ Test 7: Reproducibility Check
+   Filename: 2026-04-15-current-web-development-trends-2026.md
+   Pattern: YYYY-MM-DD-slug.md ✅
+
+✅ Test 8: Honesty Gate Disclosure
+   ✅ Clearly states sources are from web search
+
+======================================================================
+✅ ALL TESTS PASSED
+
+Implementation Details:
+  • Output file: C:\Users\Jada\aitoolkit_is322\AI-toolkit\toolKit\docs\research\2026-04-15-current-web-development-trends-2026.md
+
+[90mstdout[2m | tests/research-integration.test.ts[2m > [22m[2mresearch implementation integration
+[22m[39m  • Document size: 2 KB
+  • Quality gates: All 5 gates passing
+  • Source handling: Tool-only, no fabrication
+  • Structure: Consistent and reproducible
+
+Generated markdown preview:
+----------------------------------------------------------------------
+# current web development trends 2026
+
+## Summary
+
+Web development in 2026 is characterized by several key trends:
+
+1. **AI-Powered Development** - AI assistants like GitHub Copilot and Claude have become standard tools
+2. **TypeScript Dominance** - Most new projects use TypeScript for type safety
+3. **Edge Computing** - Deploying functions closer to users for lower latency
+4. **Web Components** - Native browser APIs gaining adoption over frameworks
+5. **Performance Focus** - Core Web Vitals rem
+... (see full file for complete content)
+
+======================================================================
+✅ Research implementation verified successfully!
+
+
+ [32m✓[39m tests/design-research.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 115[2mms[22m[39m
+ [32m✓[39m tests/research-integration.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 118[2mms[22m[39m
+ [32m✓[39m tests/engine.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m tests/quality-provenance.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m tests/provider-selection.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m tests/pipeline-malformed-results.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 257[2mms[22m[39m
+ [32m✓[39m tests/cli-routing.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m11 passed[39m[22m[90m (11)[39m
+[2m      Tests [22m [1m[32m17 passed[39m[22m[90m (17)[39m
+[2m   Start at [22m 11:12:39
+[2m   Duration [22m 1.48s[2m (transform 4.13s, setup 0ms, import 6.66s, tests 595ms, environment 3ms)[22m
+

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "p1",
+    "url": "https://example.com/blog/post-a",
+    "title": "Post A",
+    "extractedText": "This is a short page.",
+    "extractedAt": "2026-04-14T00:00:00.000Z",
+    "wordCount": 5
+  },
+  {
+    "id": "p2",
+    "url": "https://wikipedia.org/wiki/Example",
+    "title": "Wiki",
+    "extractedText": "This is another short content page for testing unsupported claims and inference signals.",
+    "extractedAt": "2026-04-14T00:00:00.000Z",
+    "wordCount": 13
+  }
+]

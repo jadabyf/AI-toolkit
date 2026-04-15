@@ -5,8 +5,8 @@ import { createToolkitCli } from "./cli/index";
 dotenv.config();
 
 async function main(): Promise<void> {
-  const cli = createToolkitCli();
-  await cli.parseAsync(process.argv);
+  const program = createToolkitCli();
+  await program.parseAsync(process.argv);
 }
 
 main().catch((error) => {

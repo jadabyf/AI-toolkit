@@ -10,6 +10,8 @@ export interface AiEnvConfig {
   openaiModel: string;
   geminiApiKey?: string;
   geminiModel: string;
+  searchProvider?: "mock" | "tavily" | "serpapi" | "brave";
+  llmProvider?: "heuristic" | "openai";
 }
 
 dotenv.config();
@@ -19,7 +21,9 @@ const envSchema = z.object({
   OPENAI_API_KEY: z.string().min(1).optional(),
   OPENAI_BASE_URL: z.string().url().optional(),
   OPENAI_MODEL: z.string().min(1).optional(),
-  GEMINI_API_KEY: z.string().min(1).optional()
+  GEMINI_API_KEY: z.string().min(1).optional(),
+  SEARCH_PROVIDER: z.enum(["mock", "tavily", "serpapi", "brave"]).optional(),
+  LLM_PROVIDER: z.enum(["heuristic", "openai"]).optional()
 });
 
 const defaultOpenAiModel = "gpt-4o-mini";
@@ -55,7 +59,9 @@ export function getAiEnvConfig(): AiEnvConfig {
     openaiBaseUrl: env.OPENAI_BASE_URL,
     openaiModel: env.OPENAI_MODEL ?? defaultOpenAiModel,
     geminiApiKey: geminiKey,
-    geminiModel: defaultGeminiModel
+    geminiModel: defaultGeminiModel,
+    searchProvider: env.SEARCH_PROVIDER,
+    llmProvider: env.LLM_PROVIDER
   };
 }
 

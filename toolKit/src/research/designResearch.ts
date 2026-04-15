@@ -222,6 +222,7 @@ Important:
 - Provide actionable design insights backed by web search results.
 - Always cite sources with URLs and dates.
 - Do NOT fill gaps with your training data - if web search doesn't have it, say so.
+`;
 }
 
 /**
