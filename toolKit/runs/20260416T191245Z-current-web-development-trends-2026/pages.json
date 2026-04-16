@@ -1,0 +1,26 @@
+[
+  {
+    "id": "page-1",
+    "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+    "title": "Reference overview for current web development trends 2026",
+    "extractedText": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See all… HTML guides Responsive images HTML cheatsheet Date &amp; time formats See all… Markup languages SVG MathML XML CSS CSS: Styling language CSS reference Properties Selectors At-rules Values See all… CSS guides Box model Animations Flexbox Colors See all… Layout cookbook Column layouts Centering an element Card component See all… JavaScript JS JavaScript: Scripting language JS reference Standard built-in objects Expressions &amp; operators Statements &amp; declarations Functions See all… JS guides Control flow &amp; error handing Loops and iteration Working with objects Using classes See all… Web APIs Web APIs: Programming interfaces Web API reference File system API Fetch API Geolocation API HTML DOM API Push API Service worker API See all… Web API guides Using the Web animation API Using the Fetch API Working with the History API Using the Web speech API Using web workers All All web technology Technologies Accessibility HTTP URI Web extensions WebAssembly WebDriver See all… Topics Media Performance Privacy Security Progressive web apps Learn Learn web development Frontend developer course Getting started modules Core modules MDN Curriculum Check out the video course from Scrimba, our partner Learn HTML Structuring content with HTML module Learn CSS CSS styling basics module CSS layout module Learn JavaScript Dynamic scripting with JavaScript module Tools Discover our tools Playground HTTP Observatory Border-image generator Border-radius generator Box-shadow generator Color format converter Color mixer Shape generator About Get to know MDN better About MDN Advertise with us Community MDN on GitHub Blog Search Theme OS default Light Dark English (US) Remember language Learn more Deutsch English (US) Español Français 日本語 한국어 Português (do Brasil) Русский 中文 (简体) 正體中文 (繁體) Search MDN Your blueprint for a better internet. MDN About Blog Mozilla careers Advertise with us MDN Plus Product help Contribute MDN Community Community resources Writing guidelines MDN Discord MDN on GitHub Developers Web technologies Learn web development Guides Tutorials Glossary Hacks blog Mozilla Website Privacy Notice Telemetry Settings Legal Community Participation Guidelines Visit Mozilla Corporation’s not-for-profit parent, the Mozilla Foundation . Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under a Creative Commons license .",
+    "extractedAt": "2026-04-16T19:12:47.478Z",
+    "wordCount": 370
+  },
+  {
+    "id": "page-2",
+    "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+    "title": "blog implementation guide",
+    "extractedText": "Practical implementation guidance.",
+    "extractedAt": "2026-04-16T19:12:47.479Z",
+    "wordCount": 3
+  },
+  {
+    "id": "page-3",
+    "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+    "title": "Industry coverage for blog",
+    "extractedText": "Background context from a secondary source.",
+    "extractedAt": "2026-04-16T19:12:47.479Z",
+    "wordCount": 6
+  }
+]

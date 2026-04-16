@@ -1,0 +1,414 @@
+{
+  "runId": "20260416T191245Z-current-web-development-trends-2026",
+  "startedAt": "2026-04-16T19:12:45.863Z",
+  "completedAt": "2026-04-16T19:12:47.501Z",
+  "query": {
+    "text": "current web development trends 2026",
+    "siteType": "blog",
+    "requestedAt": "2026-04-16T19:12:45.863Z",
+    "maxResults": 8
+  },
+  "rawSearchResults": [
+    {
+      "id": "mock-1",
+      "title": "Reference overview for current web development trends 2026",
+      "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+      "snippet": "Reference documentation and standards details.",
+      "provider": "mock",
+      "publishedAt": "2026-04-16T19:12:45.863Z"
+    },
+    {
+      "id": "mock-2",
+      "title": "blog implementation guide",
+      "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+      "snippet": "Practical implementation guidance.",
+      "provider": "mock",
+      "publishedAt": "2026-04-16T19:12:45.863Z"
+    },
+    {
+      "id": "mock-3",
+      "title": "Industry coverage for blog",
+      "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+      "snippet": "Background context from a secondary source.",
+      "provider": "mock"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-1",
+      "title": "Reference overview for current web development trends 2026",
+      "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+      "domain": "developer.mozilla.org",
+      "retrievedAt": "2026-04-16T19:12:47.478Z",
+      "publishedAt": "2026-04-16T19:12:45.863Z",
+      "extractedText": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See all… HTML guides Responsive images HTML cheatsheet Date &amp; time formats See all… Markup languages SVG MathML XML CSS CSS: Styling language CSS reference Properties Selectors At-rules Values See all… CSS guides Box model Animations Flexbox Colors See all… Layout cookbook Column layouts Centering an element Card component See all… JavaScript JS JavaScript: Scripting language JS reference Standard built-in objects Expressions &amp; operators Statements &amp; declarations Functions See all… JS guides Control flow &amp; error handing Loops and iteration Working with objects Using classes See all… Web APIs Web APIs: Programming interfaces Web API reference File system API Fetch API Geolocation API HTML DOM API Push API Service worker API See all… Web API guides Using the Web animation API Using the Fetch API Working with the History API Using the Web speech API Using web workers All All web technology Technologies Accessibility HTTP URI Web extensions WebAssembly WebDriver See all… Topics Media Performance Privacy Security Progressive web apps Learn Learn web development Frontend developer course Getting started modules Core modules MDN Curriculum Check out the video course from Scrimba, our partner Learn HTML Structuring content with HTML module Learn CSS CSS styling basics module CSS layout module Learn JavaScript Dynamic scripting with JavaScript module Tools Discover our tools Playground HTTP Observatory Border-image generator Border-radius generator Box-shadow generator Color format converter Color mixer Shape generator About Get to know MDN better About MDN Advertise with us Community MDN on GitHub Blog Search Theme OS default Light Dark English (US) Remember language Learn more Deutsch English (US) Español Français 日本語 한국어 Português (do Brasil) Русский 中文 (简体) 正體中文 (繁體) Search MDN Your blueprint for a better internet. MDN About Blog Mozilla careers Advertise with us MDN Plus Product help Contribute MDN Community Community resources Writing guidelines MDN Discord MDN on GitHub Developers Web technologies Learn web development Guides Tutorials Glossary Hacks blog Mozilla Website Privacy Notice Telemetry Settings Legal Community Participation Guidelines Visit Mozilla Corporation’s not-for-profit parent, the Mozilla Foundation . Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under a Creative Commons license .",
+      "wordCount": 370,
+      "domainClass": "primary"
+    },
+    {
+      "id": "source-2",
+      "title": "blog implementation guide",
+      "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+      "domain": "web.dev",
+      "retrievedAt": "2026-04-16T19:12:47.479Z",
+      "publishedAt": "2026-04-16T19:12:45.863Z",
+      "extractedText": "Practical implementation guidance.",
+      "wordCount": 3,
+      "domainClass": "secondary"
+    },
+    {
+      "id": "source-3",
+      "title": "Industry coverage for blog",
+      "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+      "domain": "en.wikipedia.org",
+      "retrievedAt": "2026-04-16T19:12:47.479Z",
+      "extractedText": "Background context from a secondary source.",
+      "wordCount": 6,
+      "domainClass": "secondary"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-1",
+      "statement": "Research summary for: current web development trends 2026",
+      "confidence": "medium",
+      "inferred": false,
+      "citations": [
+        {
+          "sourceId": "source-1",
+          "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+          "quote": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See"
+        }
+      ]
+    },
+    {
+      "id": "claim-2",
+      "statement": "Reference overview for current web development trends 2026: Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes",
+      "confidence": "medium",
+      "inferred": false,
+      "citations": [
+        {
+          "sourceId": "source-2",
+          "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+          "quote": "Practical implementation guidance."
+        }
+      ]
+    },
+    {
+      "id": "claim-3",
+      "statement": "blog implementation guide: Practical implementation guidance",
+      "confidence": "medium",
+      "inferred": false,
+      "citations": [
+        {
+          "sourceId": "source-3",
+          "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+          "quote": "Background context from a secondary source."
+        }
+      ]
+    },
+    {
+      "id": "claim-4",
+      "statement": "Industry coverage for blog: Background context from a secondary source",
+      "confidence": "medium",
+      "inferred": false,
+      "citations": [
+        {
+          "sourceId": "source-1",
+          "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+          "quote": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See"
+        }
+      ]
+    }
+  ],
+  "gate": {
+    "status": "WARN",
+    "score": 75,
+    "report": {
+      "siteType": "blog",
+      "overallStatus": "WARN",
+      "overallScore": 75,
+      "thresholds": {
+        "passScore": 78,
+        "warnScore": 58
+      },
+      "ruleResults": [
+        {
+          "id": "base.minSources",
+          "title": "Minimum credible sources",
+          "status": "PASS",
+          "severity": "high",
+          "scoreDelta": 0,
+          "evidence": [
+            {
+              "type": "source",
+              "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026"
+            },
+            {
+              "type": "source",
+              "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026"
+            },
+            {
+              "type": "source",
+              "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026"
+            }
+          ],
+          "explanation": "Credible sources: 3 (min 3).",
+          "remediation": []
+        },
+        {
+          "id": "base.domainDiversity",
+          "title": "Domain diversity",
+          "status": "PASS",
+          "severity": "med",
+          "scoreDelta": 0,
+          "evidence": [
+            {
+              "type": "source",
+              "note": "developer.mozilla.org"
+            },
+            {
+              "type": "source",
+              "note": "web.dev"
+            },
+            {
+              "type": "source",
+              "note": "en.wikipedia.org"
+            }
+          ],
+          "explanation": "Domain diversity: 3 (min 2).",
+          "remediation": []
+        },
+        {
+          "id": "base.authoritativeSources",
+          "title": "Authoritative source minimum",
+          "status": "PASS",
+          "severity": "med",
+          "scoreDelta": 0,
+          "evidence": [
+            {
+              "type": "source",
+              "note": "primary:developer.mozilla.org"
+            }
+          ],
+          "explanation": "Primary domains: 1 (min 1).",
+          "remediation": []
+        },
+        {
+          "id": "base.duplicateSources",
+          "title": "Duplicate source detection",
+          "status": "PASS",
+          "severity": "med",
+          "scoreDelta": 0,
+          "evidence": [],
+          "explanation": "No duplicate source URLs detected.",
+          "remediation": []
+        },
+        {
+          "id": "base.freshness",
+          "title": "Source freshness",
+          "status": "PASS",
+          "severity": "med",
+          "scoreDelta": 0,
+          "evidence": [],
+          "explanation": "Recency not required for this site type.",
+          "remediation": []
+        },
+        {
+          "id": "base.citationCompleteness",
+          "title": "Citation completeness",
+          "status": "PASS",
+          "severity": "high",
+          "scoreDelta": 0,
+          "evidence": [],
+          "explanation": "All bullets have citations with quotes.",
+          "remediation": []
+        },
+        {
+          "id": "base.unsupportedClaims",
+          "title": "Unsupported claim detection",
+          "status": "PASS",
+          "severity": "high",
+          "scoreDelta": 0,
+          "evidence": [],
+          "explanation": "Unsupported claim ratio is within limits.",
+          "remediation": []
+        },
+        {
+          "id": "base.excessiveInference",
+          "title": "Excessive inference without evidence",
+          "status": "PASS",
+          "severity": "med",
+          "scoreDelta": 0,
+          "evidence": [],
+          "explanation": "Inference ratio is within acceptable bounds.",
+          "remediation": []
+        },
+        {
+          "id": "base.lowConfidenceClaims",
+          "title": "Low-confidence section detection",
+          "status": "PASS",
+          "severity": "low",
+          "scoreDelta": 0,
+          "evidence": [],
+          "explanation": "Low-confidence ratio is within limits.",
+          "remediation": []
+        },
+        {
+          "id": "base.quoteQuality",
+          "title": "Quote quality",
+          "status": "PASS",
+          "severity": "med",
+          "scoreDelta": 0,
+          "evidence": [],
+          "explanation": "All quotes meet quality thresholds.",
+          "remediation": []
+        },
+        {
+          "id": "base.redFlags",
+          "title": "Red flag sources",
+          "status": "WARN",
+          "severity": "high",
+          "scoreDelta": -10,
+          "evidence": [
+            {
+              "type": "page",
+              "note": "Thin content pages: 2"
+            }
+          ],
+          "explanation": "Low-quality indicators detected.",
+          "remediation": [
+            "Reduce low-quality sources and increase content depth."
+          ]
+        },
+        {
+          "id": "base.thinContent",
+          "title": "Thin content detection",
+          "status": "WARN",
+          "severity": "low",
+          "scoreDelta": -5,
+          "evidence": [],
+          "explanation": "Thin content pages: 2.",
+          "remediation": [
+            "Expand or replace thin pages with more substantial sources."
+          ]
+        },
+        {
+          "id": "blog.sourceDepth",
+          "title": "Source depth",
+          "status": "WARN",
+          "severity": "med",
+          "scoreDelta": -10,
+          "evidence": [],
+          "explanation": "Not enough long-form sources detected.",
+          "remediation": [
+            "Add one long-form source (800+ words) or two medium sources (400+ words)."
+          ]
+        },
+        {
+          "id": "design.general.consistency",
+          "title": "General design consistency",
+          "status": "PASS",
+          "severity": "high",
+          "scoreDelta": 0,
+          "evidence": [],
+          "explanation": "Design shows good consistency across elements.",
+          "remediation": []
+        }
+      ],
+      "remediation": [
+        "Reduce low-quality sources and increase content depth.",
+        "Expand or replace thin pages with more substantial sources.",
+        "Add one long-form source (800+ words) or two medium sources (400+ words)."
+      ],
+      "metricsSummary": {
+        "sourceCount": 3,
+        "credibleSourceCount": 3,
+        "domainDiversity": 3,
+        "citationCoverageRatio": 1,
+        "marketingScore": 0,
+        "thinContentCount": 2,
+        "recentSources7": 3,
+        "recentSources30": 3,
+        "recentSources60": 3
+      }
+    }
+  },
+  "report": {
+    "runId": "20260416T191245Z-current-web-development-trends-2026",
+    "generatedAt": "2026-04-16T19:12:47.501Z",
+    "question": "current web development trends 2026",
+    "siteType": "blog",
+    "providerSummary": {
+      "searchProvider": "mock",
+      "llmProvider": "heuristic"
+    },
+    "summary": "Research summary for: current web development trends 2026\n\n1. Reference overview for current web development trends 2026: Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes\n2. blog implementation guide: Practical implementation guidance.\n3. Industry coverage for blog: Background context from a secondary source.",
+    "keyFindings": [
+      "Research summary for: current web development trends 2026",
+      "1. Reference overview for current web development trends 2026: Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes",
+      "2. blog implementation guide: Practical implementation guidance.",
+      "3. Industry coverage for blog: Background context from a secondary source."
+    ],
+    "claims": [
+      {
+        "id": "claim-1",
+        "statement": "Research summary for: current web development trends 2026",
+        "confidence": "medium",
+        "inferred": false,
+        "citations": [
+          {
+            "sourceId": "source-1",
+            "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+            "quote": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See"
+          }
+        ]
+      },
+      {
+        "id": "claim-2",
+        "statement": "Reference overview for current web development trends 2026: Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes",
+        "confidence": "medium",
+        "inferred": false,
+        "citations": [
+          {
+            "sourceId": "source-2",
+            "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+            "quote": "Practical implementation guidance."
+          }
+        ]
+      },
+      {
+        "id": "claim-3",
+        "statement": "blog implementation guide: Practical implementation guidance",
+        "confidence": "medium",
+        "inferred": false,
+        "citations": [
+          {
+            "sourceId": "source-3",
+            "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+            "quote": "Background context from a secondary source."
+          }
+        ]
+      },
+      {
+        "id": "claim-4",
+        "statement": "Industry coverage for blog: Background context from a secondary source",
+        "confidence": "medium",
+        "inferred": false,
+        "citations": [
+          {
+            "sourceId": "source-1",
+            "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+            "quote": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See"
+          }
+        ]
+      }
+    ],
+    "limitations": [],
+    "nextSteps": [
+      "Review WARN/FAIL rules and apply remediation actions.",
+      "Run a follow-up search for any low-confidence claim.",
+      "Re-run with stricter gates for final publication."
+    ]
+  }
+}

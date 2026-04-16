@@ -169,7 +169,7 @@ async function example7_QuickHelper() {
   // One-liner for quick research
   await runResearch(
     process.env.OPENAI_API_KEY!,
-    "What are the security best practices for Docker containers?",
+    "What are the security best practices for Node.js production deployments?",
     "Focus on production deployments"
   );
 

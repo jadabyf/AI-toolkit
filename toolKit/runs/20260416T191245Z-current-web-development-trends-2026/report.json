@@ -1,0 +1,77 @@
+{
+  "runId": "20260416T191245Z-current-web-development-trends-2026",
+  "generatedAt": "2026-04-16T19:12:47.501Z",
+  "question": "current web development trends 2026",
+  "siteType": "blog",
+  "providerSummary": {
+    "searchProvider": "mock",
+    "llmProvider": "heuristic"
+  },
+  "summary": "Research summary for: current web development trends 2026\n\n1. Reference overview for current web development trends 2026: Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes\n2. blog implementation guide: Practical implementation guidance.\n3. Industry coverage for blog: Background context from a secondary source.",
+  "keyFindings": [
+    "Research summary for: current web development trends 2026",
+    "1. Reference overview for current web development trends 2026: Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes",
+    "2. blog implementation guide: Practical implementation guidance.",
+    "3. Industry coverage for blog: Background context from a secondary source."
+  ],
+  "claims": [
+    {
+      "id": "claim-1",
+      "statement": "Research summary for: current web development trends 2026",
+      "confidence": "medium",
+      "inferred": false,
+      "citations": [
+        {
+          "sourceId": "source-1",
+          "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+          "quote": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See"
+        }
+      ]
+    },
+    {
+      "id": "claim-2",
+      "statement": "Reference overview for current web development trends 2026: Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes",
+      "confidence": "medium",
+      "inferred": false,
+      "citations": [
+        {
+          "sourceId": "source-2",
+          "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+          "quote": "Practical implementation guidance."
+        }
+      ]
+    },
+    {
+      "id": "claim-3",
+      "statement": "blog implementation guide: Practical implementation guidance",
+      "confidence": "medium",
+      "inferred": false,
+      "citations": [
+        {
+          "sourceId": "source-3",
+          "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+          "quote": "Background context from a secondary source."
+        }
+      ]
+    },
+    {
+      "id": "claim-4",
+      "statement": "Industry coverage for blog: Background context from a secondary source",
+      "confidence": "medium",
+      "inferred": false,
+      "citations": [
+        {
+          "sourceId": "source-1",
+          "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+          "quote": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See"
+        }
+      ]
+    }
+  ],
+  "limitations": [],
+  "nextSteps": [
+    "Review WARN/FAIL rules and apply remediation actions.",
+    "Run a follow-up search for any low-confidence claim.",
+    "Re-run with stricter gates for final publication."
+  ]
+}

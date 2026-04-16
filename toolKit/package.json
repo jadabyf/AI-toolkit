@@ -1,8 +1,20 @@
 {
   "name": "ai-web-research-toolkit",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "type": "commonjs",
+  "files": [
+    "dist",
+    "README.md",
+    ".env.example",
+    "gates.schema.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "bin": {
     "toolkit": "dist/toolkit.js",
     "research": "dist/cli.js"
@@ -18,6 +30,7 @@
     "test:coverage": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk --inspect --single-thread",
     "check": "npm run lint && npm run build && npm run test",
+    "prepack": "npm run check",
     "research": "tsx src/toolkit.ts research run",
     "research:design": "tsx src/designResearchCli.ts",
     "research:examples": "tsx examples/research-examples.ts",

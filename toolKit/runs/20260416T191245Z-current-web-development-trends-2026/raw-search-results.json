@@ -1,0 +1,25 @@
+[
+  {
+    "id": "mock-1",
+    "title": "Reference overview for current web development trends 2026",
+    "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+    "snippet": "Reference documentation and standards details.",
+    "provider": "mock",
+    "publishedAt": "2026-04-16T19:12:45.863Z"
+  },
+  {
+    "id": "mock-2",
+    "title": "blog implementation guide",
+    "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+    "snippet": "Practical implementation guidance.",
+    "provider": "mock",
+    "publishedAt": "2026-04-16T19:12:45.863Z"
+  },
+  {
+    "id": "mock-3",
+    "title": "Industry coverage for blog",
+    "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+    "snippet": "Background context from a secondary source.",
+    "provider": "mock"
+  }
+]

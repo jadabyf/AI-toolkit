@@ -1,0 +1,60 @@
+[
+  {
+    "id": "summary-1",
+    "title": "Claims summary",
+    "bullets": [
+      {
+        "text": "Research summary for: current web development trends 2026",
+        "citations": [
+          {
+            "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+            "quote": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See"
+          }
+        ],
+        "tags": [
+          "supported",
+          "confidence-medium"
+        ]
+      },
+      {
+        "text": "Reference overview for current web development trends 2026: Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes",
+        "citations": [
+          {
+            "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+            "quote": "Practical implementation guidance."
+          }
+        ],
+        "tags": [
+          "supported",
+          "confidence-medium"
+        ]
+      },
+      {
+        "text": "blog implementation guide: Practical implementation guidance",
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+            "quote": "Background context from a secondary source."
+          }
+        ],
+        "tags": [
+          "supported",
+          "confidence-medium"
+        ]
+      },
+      {
+        "text": "Industry coverage for blog: Background context from a secondary source",
+        "citations": [
+          {
+            "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+            "quote": "Search | MDN Skip to main content Skip to search MDN HTML HTML: Markup language HTML reference Elements Global attributes Attributes See"
+          }
+        ],
+        "tags": [
+          "supported",
+          "confidence-medium"
+        ]
+      }
+    ]
+  }
+]

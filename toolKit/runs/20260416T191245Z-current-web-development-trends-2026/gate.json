@@ -1,0 +1,209 @@
+{
+  "siteType": "blog",
+  "overallStatus": "WARN",
+  "overallScore": 75,
+  "thresholds": {
+    "passScore": 78,
+    "warnScore": 58
+  },
+  "ruleResults": [
+    {
+      "id": "base.minSources",
+      "title": "Minimum credible sources",
+      "status": "PASS",
+      "severity": "high",
+      "scoreDelta": 0,
+      "evidence": [
+        {
+          "type": "source",
+          "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026"
+        },
+        {
+          "type": "source",
+          "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026"
+        },
+        {
+          "type": "source",
+          "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026"
+        }
+      ],
+      "explanation": "Credible sources: 3 (min 3).",
+      "remediation": []
+    },
+    {
+      "id": "base.domainDiversity",
+      "title": "Domain diversity",
+      "status": "PASS",
+      "severity": "med",
+      "scoreDelta": 0,
+      "evidence": [
+        {
+          "type": "source",
+          "note": "developer.mozilla.org"
+        },
+        {
+          "type": "source",
+          "note": "web.dev"
+        },
+        {
+          "type": "source",
+          "note": "en.wikipedia.org"
+        }
+      ],
+      "explanation": "Domain diversity: 3 (min 2).",
+      "remediation": []
+    },
+    {
+      "id": "base.authoritativeSources",
+      "title": "Authoritative source minimum",
+      "status": "PASS",
+      "severity": "med",
+      "scoreDelta": 0,
+      "evidence": [
+        {
+          "type": "source",
+          "note": "primary:developer.mozilla.org"
+        }
+      ],
+      "explanation": "Primary domains: 1 (min 1).",
+      "remediation": []
+    },
+    {
+      "id": "base.duplicateSources",
+      "title": "Duplicate source detection",
+      "status": "PASS",
+      "severity": "med",
+      "scoreDelta": 0,
+      "evidence": [],
+      "explanation": "No duplicate source URLs detected.",
+      "remediation": []
+    },
+    {
+      "id": "base.freshness",
+      "title": "Source freshness",
+      "status": "PASS",
+      "severity": "med",
+      "scoreDelta": 0,
+      "evidence": [],
+      "explanation": "Recency not required for this site type.",
+      "remediation": []
+    },
+    {
+      "id": "base.citationCompleteness",
+      "title": "Citation completeness",
+      "status": "PASS",
+      "severity": "high",
+      "scoreDelta": 0,
+      "evidence": [],
+      "explanation": "All bullets have citations with quotes.",
+      "remediation": []
+    },
+    {
+      "id": "base.unsupportedClaims",
+      "title": "Unsupported claim detection",
+      "status": "PASS",
+      "severity": "high",
+      "scoreDelta": 0,
+      "evidence": [],
+      "explanation": "Unsupported claim ratio is within limits.",
+      "remediation": []
+    },
+    {
+      "id": "base.excessiveInference",
+      "title": "Excessive inference without evidence",
+      "status": "PASS",
+      "severity": "med",
+      "scoreDelta": 0,
+      "evidence": [],
+      "explanation": "Inference ratio is within acceptable bounds.",
+      "remediation": []
+    },
+    {
+      "id": "base.lowConfidenceClaims",
+      "title": "Low-confidence section detection",
+      "status": "PASS",
+      "severity": "low",
+      "scoreDelta": 0,
+      "evidence": [],
+      "explanation": "Low-confidence ratio is within limits.",
+      "remediation": []
+    },
+    {
+      "id": "base.quoteQuality",
+      "title": "Quote quality",
+      "status": "PASS",
+      "severity": "med",
+      "scoreDelta": 0,
+      "evidence": [],
+      "explanation": "All quotes meet quality thresholds.",
+      "remediation": []
+    },
+    {
+      "id": "base.redFlags",
+      "title": "Red flag sources",
+      "status": "WARN",
+      "severity": "high",
+      "scoreDelta": -10,
+      "evidence": [
+        {
+          "type": "page",
+          "note": "Thin content pages: 2"
+        }
+      ],
+      "explanation": "Low-quality indicators detected.",
+      "remediation": [
+        "Reduce low-quality sources and increase content depth."
+      ]
+    },
+    {
+      "id": "base.thinContent",
+      "title": "Thin content detection",
+      "status": "WARN",
+      "severity": "low",
+      "scoreDelta": -5,
+      "evidence": [],
+      "explanation": "Thin content pages: 2.",
+      "remediation": [
+        "Expand or replace thin pages with more substantial sources."
+      ]
+    },
+    {
+      "id": "blog.sourceDepth",
+      "title": "Source depth",
+      "status": "WARN",
+      "severity": "med",
+      "scoreDelta": -10,
+      "evidence": [],
+      "explanation": "Not enough long-form sources detected.",
+      "remediation": [
+        "Add one long-form source (800+ words) or two medium sources (400+ words)."
+      ]
+    },
+    {
+      "id": "design.general.consistency",
+      "title": "General design consistency",
+      "status": "PASS",
+      "severity": "high",
+      "scoreDelta": 0,
+      "evidence": [],
+      "explanation": "Design shows good consistency across elements.",
+      "remediation": []
+    }
+  ],
+  "remediation": [
+    "Reduce low-quality sources and increase content depth.",
+    "Expand or replace thin pages with more substantial sources.",
+    "Add one long-form source (800+ words) or two medium sources (400+ words)."
+  ],
+  "metricsSummary": {
+    "sourceCount": 3,
+    "credibleSourceCount": 3,
+    "domainDiversity": 3,
+    "citationCoverageRatio": 1,
+    "marketingScore": 0,
+    "thinContentCount": 2,
+    "recentSources7": 3,
+    "recentSources30": 3,
+    "recentSources60": 3
+  }
+}

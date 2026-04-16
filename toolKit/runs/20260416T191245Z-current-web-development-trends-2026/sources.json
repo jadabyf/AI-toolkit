@@ -1,0 +1,23 @@
+[
+  {
+    "id": "source-1",
+    "url": "https://developer.mozilla.org/en-US/search?q=current%20web%20development%20trends%202026",
+    "title": "Reference overview for current web development trends 2026",
+    "fetchedAt": "2026-04-16T19:12:47.478Z",
+    "domain": "developer.mozilla.org"
+  },
+  {
+    "id": "source-2",
+    "url": "https://web.dev/search/?q=current%20web%20development%20trends%202026",
+    "title": "blog implementation guide",
+    "fetchedAt": "2026-04-16T19:12:47.479Z",
+    "domain": "web.dev"
+  },
+  {
+    "id": "source-3",
+    "url": "https://en.wikipedia.org/wiki/current%20web%20development%20trends%202026",
+    "title": "Industry coverage for blog",
+    "fetchedAt": "2026-04-16T19:12:47.479Z",
+    "domain": "en.wikipedia.org"
+  }
+]
